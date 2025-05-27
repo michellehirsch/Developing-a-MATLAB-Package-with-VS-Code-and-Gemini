@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Getting Started with Geometry Toolbox</title>
+    <link rel="stylesheet" type="text/css" href="includes/style.css"> <!-- Assuming a common style.css -->
+</head>
+<body>
+    <h1>Getting Started with Geometry Toolbox</h1>
+    <p>Welcome to the Geometry Toolbox! This toolbox provides a set of functions for calculating the area of common 2D shapes and for visualizing them.</p>
+    
+    <h2>Installation</h2>
+    <p>To use this toolbox, ensure the root folder <code>GeometryToolbox</code> (containing <code>+geometry</code>, <code>doc</code>, etc.) is on the MATLAB path. You can add it using <code>addpath(genpath('path/to/GeometryToolbox'))</code> or via the MATLAB Set Path dialog.</p>
+    <p>If installed as an Add-On, MATLAB should handle path management automatically.</p>
+
+    <h2>Basic Usage</h2>
+    <p>All functions are part of the <code>geometry</code> package. To call a function, use the syntax <code>geometry.functionName()</code>.</p>
+    <pre><code class="language-matlab">
+    radius = 5;
+    circleArea = geometry.areaCircle(radius);
+    fprintf('The area is: %f\n', circleArea);
+
+    figure;
+    geometry.visualizeCircle(radius, [1,1]);
+    title('My Circle');
+    </code></pre>
+
+    <h2>Further Help</h2>
+    <p>For detailed help on specific functions, type <code>help geometry.functionName</code> in the MATLAB command window (e.g., <code>help geometry.areaCircle</code>).</p>
+    <p>Explore the <a href="GeometryToolbox_Examples.html">examples</a> to see the toolbox in action.</p>
+</body>
+</html>

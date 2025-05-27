@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<productinfo xmlns="http://www.mathworks.com/ princesa/addoninfo">
+    <name>Geometry Toolbox</name>
+    <type>Toolbox</type>
+    <icon /> <!-- Optional: specify a path to an icon file (e.g., resources/icon.png) -->
+    <help_location>doc</help_location> <!-- Points to the doc folder for helptoc.xml -->
+    <list_image /> <!-- Optional: path to an image for the Add-On Manager list view -->
+    <matlab_version>
+        <version>R2019b</version> <!-- Minimum MATLAB version (due to 'arguments' block) -->
+        <inclusive>true</inclusive>
+    </matlab_version>
+    <author>
+        <name>Gemini Code Assist</name>
+        <contact></contact>
+        <organization></organization>
+    </author>
+    <summary>Functions for computing area and visualizing 2D shapes like circles, rectangles, squares, and triangles.</summary>
+    <description>A MATLAB toolbox providing functions to calculate the area of common two-dimensional geometric shapes and to visualize them. All functions are conveniently namespaced under 'geometry'. Includes examples and documentation.</description>
+    <version>1.0.0</version>
+    <release_date>YYYY-MM-DD</release_date>
+</productinfo>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc version="2.0">
+    <tocitem target="GeometryToolbox_GettingStarted.html" image="$toolbox/matlab/icons/book_mat.gif">Geometry Toolbox
+        <tocitem target="titlepage.html">
+            <tocitem target="geometry.areaCircle.html" image="$toolbox/matlab/icons/help_fx.gif">geometry.areaCircle</tocitem>
+            <tocitem target="geometry.areaRectangle.html" image="$toolbox/matlab/icons/help_fx.gif">geometry.areaRectangle</tocitem>
+            <tocitem target="geometry.areaSquare.html" image="$toolbox/matlab/icons/help_fx.gif">geometry.areaSquare</tocitem>
+            <tocitem target="geometry.areaTriangle.html" image="$toolbox/matlab/icons/help_fx.gif">geometry.areaTriangle</tocitem>
+        </tocitem>
+        <tocitem target="titlepage.html"> <!-- Grouping visualization functions -->
+            <tocitem target="geometry.visualizeCircle.html" image="$toolbox/matlab/icons/help_fx.gif">geometry.visualizeCircle</tocitem>
+            <tocitem target="geometry.visualizeRectangle.html" image="$toolbox/matlab/icons/help_fx.gif">geometry.visualizeRectangle</tocitem>
+            <tocitem target="geometry.visualizeSquare.html" image="$toolbox/matlab/icons/help_fx.gif">geometry.visualizeSquare</tocitem>
+            <tocitem target="geometry.visualizeTriangle.html" image="$toolbox/matlab/icons/help_fx.gif">geometry.visualizeTriangle</tocitem>
+        </tocitem>
+        <tocitem target="GeometryToolbox_Examples.html" image="$toolbox/matlab/icons/help_ex.gif">Examples</tocitem>
+        <tocitem target="GeometryToolbox_ReleaseNotes.html" image="$toolbox/matlab/icons/help_rn.gif">Release Notes</tocitem>
+    </tocitem>
+</toc>
+<!--
+Note: The .html files (e.g., geometry.areaCircle.html) are typically generated from your .m file help
+      comments using MATLAB's documentation tools (e.g., by running builddocsearchdb on the 'doc' folder).
+      You would create GeometryToolbox_GettingStarted.html, GeometryToolbox_Examples.html, etc., manually or with publishing tools.
+-->
