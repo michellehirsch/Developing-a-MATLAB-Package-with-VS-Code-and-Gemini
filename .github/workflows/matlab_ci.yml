@@ -1,0 +1,66 @@
+name: MATLAB CI
+
+on:
+  push:
+    branches: [ main ] # Adjust if your default branch is different (e.g., master)
+  pull_request:
+    branches: [ main ] # Adjust if your default branch is different
+
+jobs:
+  test-and-lint:
+    name: Test & Lint (MATLAB ${{ matrix.matlab-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false # Continue other jobs in matrix even if one fails
+      matrix:
+        matlab-version: [ R2023b ] # Specify MATLAB version(s)
+        # Add more versions to test against, e.g.:
+        # matlab-version: [ R2022b, R2023a, R2023b ]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v2
+        with:
+          release: ${{ matrix.matlab-version }}
+
+      - name: Run MATLAB Lint
+        shell: matlab -batch "{0}"
+        run: |
+          disp('Adding project folders to path...');
+          addpath(genpath(pwd));
+          disp('Running lint script...');
+          try
+            run_lint; % This script will exit(1) if lint issues are found
+            disp('Linting completed successfully.');
+          catch ME
+            disp('Error during linting process:');
+            disp(ME.getReport);
+            exit(1);
+          end
+
+      - name: Run MATLAB Tests
+        uses: matlab-actions/run-tests@v2
+        with:
+          source-folder: ${{ github.workspace }} # Root of the repo, tests will be discovered
+          test-results-junit: test-results/results.xml
+          # Optional: Add code coverage
+          # code-coverage-cobertura: code-coverage/coverage.xml
+          # pdf-report: test-results/report.pdf
+
+      - name: Upload Test Results Artifact
+        uses: actions/upload-artifact@v4
+        if: always() # Always run this step to upload results, even if tests fail
+        with:
+          name: matlab-test-results-${{ matrix.matlab-version }}
+          path: test-results/results.xml
+
+      # Optional: Upload Code Coverage Artifact
+      # - name: Upload Code Coverage Artifact
+      #   uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     name: matlab-code-coverage-${{ matrix.matlab-version }}
+      #     path: code-coverage/coverage.xml
