@@ -19,11 +19,9 @@ function h = visualizeRectangle(lengthVal, widthVal, origin)
 %       h = geometry.visualizeRectangle(10, 5, [1, 1]);
 %       axis equal;
 %       grid on;
-%       title('Visualized Rectangle');
+%       title("Visualized Rectangle");
 %
 %   See also geometry.areaRectangle, rectangle.
-
-%   Copyright YYYY Your Name or Company
 
     arguments
         lengthVal (1,1) {mustBeNumeric, mustBeReal, mustBePositive}

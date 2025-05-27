@@ -20,18 +20,16 @@ function h = visualizeTriangle(vertices, faceColor)
 %   Example:
 %       figure;
 %       verts = [0 0; 1 2; 2 0];
-%       h = geometry.visualizeTriangle(verts, 'green');
+%       h = geometry.visualizeTriangle(verts, "green");
 %       axis equal;
 %       grid on;
-%       title('Visualized Triangle');
+%       title("Visualized Triangle");
 %
 %   See also geometry.areaTriangle, patch.
 
-%   Copyright YYYY Your Name or Company
-
     arguments
         vertices  (3,2) {mustBeNumeric, mustBeReal}
-        faceColor       {validatecolor} = 'blue' % MATLAB's validatecolor can be used if available, or simple check
+        faceColor       {validatecolor} = "blue" % MATLAB's validatecolor can be used if available, or simple check
     end
 
     h = patch(vertices(:,1), vertices(:,2), faceColor);

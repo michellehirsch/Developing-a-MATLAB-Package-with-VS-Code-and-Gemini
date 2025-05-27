@@ -11,12 +11,10 @@ function area = areaCircle(radius)
 %   Example:
 %       r = 5;
 %       a = geometry.areaCircle(r);
-%       disp(['Area of a circle with radius ' num2str(r) ' is ' num2str(a)]);
+%       disp("Area of a circle with radius " + r + " is " + a);
 %       % Expected output: Area of a circle with radius 5 is 78.5398
 %
 %   See also geometry.areaRectangle, geometry.areaSquare, geometry.areaTriangle, geometry.visualizeCircle.
-
-%   Copyright YYYY Your Name or Company
 
     arguments
         radius (1,1) {mustBeNumeric, mustBeReal, mustBePositive}

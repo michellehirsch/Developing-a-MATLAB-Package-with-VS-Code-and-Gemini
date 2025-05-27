@@ -20,12 +20,10 @@ function h = visualizeCircle(radius, center)
 %       h2 = geometry.visualizeCircle(3, [2, 2]);
 %       hold off;
 %       axis equal;
-%       title('Visualized Circles');
-%       legend([h1, h2], 'Circle 1', 'Circle 2');
+%       title("Visualized Circles");
+%       legend([h1, h2], "Circle 1", "Circle 2");
 %
 %   See also geometry.areaCircle, viscircles, rectangle.
-
-%   Copyright YYYY Your Name or Company
 
     arguments
         radius (1,1) {mustBeNumeric, mustBeReal, mustBePositive}

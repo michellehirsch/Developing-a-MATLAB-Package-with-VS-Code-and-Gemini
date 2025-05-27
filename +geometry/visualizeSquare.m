@@ -18,11 +18,9 @@ function h = visualizeSquare(side, origin)
 %       h = geometry.visualizeSquare(5, [1,1]);
 %       axis equal;
 %       grid on;
-%       title('Visualized Square');
+%       title("Visualized Square");
 %
 %   See also geometry.areaSquare, geometry.visualizeRectangle, rectangle.
-
-%   Copyright YYYY Your Name or Company
 
     arguments
         side   (1,1) {mustBeNumeric, mustBeReal, mustBePositive}

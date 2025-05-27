@@ -14,12 +14,10 @@ function area = areaTriangle(base, height)
 %       b = 10;
 %       h = 5;
 %       a = geometry.areaTriangle(b, h);
-%       disp(['Area of a triangle (B=' num2str(b) ', H=' num2str(h) ') is ' num2str(a)]);
+%       disp("Area of a triangle (B=" + b + ", H=" + h + ") is " + a);
 %       % Expected output: Area of a triangle (B=10, H=5) is 25
 %
 %   See also geometry.areaCircle, geometry.areaRectangle, geometry.areaSquare, geometry.visualizeTriangle.
-
-%   Copyright YYYY Your Name or Company
 
     arguments
         base   (1,1) {mustBeNumeric, mustBeReal, mustBePositive}

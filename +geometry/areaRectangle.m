@@ -13,16 +13,14 @@ function area = areaRectangle(length, width)
 %   Example:
 %       l = 10;
 %       w = 5;
-%       a = geometry.areaRectangle(l, w);
-%       disp(['Area of a rectangle (L=' num2str(l) ', W=' num2str(w) ') is ' num2str(a)]);
+%       a = geometry.areaRectangle(l, w); % Note: 'length' is a built-in function, consider renaming the input variable
+%       disp("Area of a rectangle (L=" + l + ", W=" + w + ") is " + a);
 %       % Expected output: Area of a rectangle (L=10, W=5) is 50
 %
 %   See also geometry.areaCircle, geometry.areaSquare, geometry.areaTriangle, geometry.visualizeRectangle.
 
-%   Copyright YYYY Your Name or Company
-
     arguments
-        length (1,1) {mustBeNumeric, mustBeReal, mustBePositive}
+        length (1,1) {mustBeNumeric, mustBeReal, mustBePositive} % Consider renaming to avoid conflict with built-in 'length'
         width  (1,1) {mustBeNumeric, mustBeReal, mustBePositive}
     end
 

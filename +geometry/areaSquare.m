@@ -11,12 +11,10 @@ function area = areaSquare(side)
 %   Example:
 %       s = 7;
 %       a = geometry.areaSquare(s);
-%       disp(['Area of a square with side ' num2str(s) ' is ' num2str(a)]);
+%       disp("Area of a square with side " + s + " is " + a);
 %       % Expected output: Area of a square with side 7 is 49
 %
 %   See also geometry.areaCircle, geometry.areaRectangle, geometry.areaTriangle, geometry.visualizeSquare.
-
-%   Copyright YYYY Your Name or Company
 
     arguments
         side (1,1) {mustBeNumeric, mustBeReal, mustBePositive}
