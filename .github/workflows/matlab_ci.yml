@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false # Continue other jobs in matrix even if one fails
       matrix:
-        matlab-version: [ R2023b ] # Specify MATLAB version(s)
+        matlab-version: [ R2025a ] # Specify MATLAB version(s)
         # Add more versions to test against, e.g.:
         # matlab-version: [ R2022b, R2023a, R2023b ]
 
