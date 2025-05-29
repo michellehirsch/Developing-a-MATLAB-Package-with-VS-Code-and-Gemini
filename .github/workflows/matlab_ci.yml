@@ -26,20 +26,21 @@ jobs:
         with:
           release: ${{ matrix.matlab-version }}
 
-      - name: Run MATLAB Lint
-        shell: matlab -batch "{0}"
-        run: |
-          disp('Adding project folders to path...');
-          addpath(genpath(pwd));
-          disp('Running lint script...');
-          try
-            run_lint; % This script will exit(1) if lint issues are found
-            disp('Linting completed successfully.');
-          catch ME
-            disp('Error during linting process:');
-            disp(ME.getReport);
-            exit(1);
-          end
+      - name: Run MATLAB Lint Script
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            disp('Adding project folders to path...');
+            addpath(genpath(pwd));
+            disp('Running lint script...');
+            try
+              run_lint; % This script will exit(1) if lint issues are found
+              disp('Linting completed successfully.');
+            catch ME
+              disp('Error during linting process:');
+              disp(ME.getReport);
+              exit(1);
+            end          
 
       - name: Run MATLAB Tests
         uses: matlab-actions/run-tests@v2
