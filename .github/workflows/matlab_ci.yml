@@ -26,30 +26,10 @@ jobs:
         with:
           release: ${{ matrix.matlab-version }}
 
-      - name: Run MATLAB Lint Script
-        uses: matlab-actions/run-command@v2
+      - name: Run MATLAB Build (Lint & Test)
+        uses: matlab-actions/run-build@v2
         with:
-          command: |
-            disp('Adding project folders to path...');
-            addpath(genpath(pwd));
-            disp('Running lint script...');
-            try
-              run_lint; % This script will exit(1) if lint issues are found
-              disp('Linting completed successfully.');
-            catch ME
-              disp('Error during linting process:');
-              disp(ME.getReport);
-              exit(1);
-            end          
-
-      - name: Run MATLAB Tests
-        uses: matlab-actions/run-tests@v2
-        with:
-          source-folder: ${{ github.workspace }} # Root of the repo, tests will be discovered
-          test-results-junit: test-results/results.xml
-          # Optional: Add code coverage
-          # code-coverage-cobertura: code-coverage/coverage.xml
-          # pdf-report: test-results/report.pdf
+          tasks: lint test 
 
       - name: Upload Test Results Artifact
         uses: actions/upload-artifact@v4
