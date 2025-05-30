@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" name="TestAreaFunctions" skipped="0" tests="9" time="0.31968">
-    <testcase classname="TestAreaFunctions" name="testAreaCircle_PositiveRadius" time="0.041623"/>
-    <testcase classname="TestAreaFunctions" name="testAreaCircle_SmallRadius" time="0.011489"/>
-    <testcase classname="TestAreaFunctions" name="testAreaCircle_InvalidInputs" time="0.070224"/>
-    <testcase classname="TestAreaFunctions" name="testAreaRectangle_PositiveDimensions" time="0.0060566"/>
-    <testcase classname="TestAreaFunctions" name="testAreaRectangle_InvalidInputs" time="0.051306"/>
-    <testcase classname="TestAreaFunctions" name="testAreaSquare_PositiveSide" time="0.0045704"/>
-    <testcase classname="TestAreaFunctions" name="testAreaSquare_InvalidInputs" time="0.057789"/>
-    <testcase classname="TestAreaFunctions" name="testAreaTriangle_PositiveDimensions" time="0.0077061"/>
-    <testcase classname="TestAreaFunctions" name="testAreaTriangle_InvalidInputs" time="0.068915"/>
+  <testsuite errors="0" failures="0" name="TestAreaFunctions" skipped="0" tests="9" time="0.4662">
+    <testcase classname="TestAreaFunctions" name="testAreaCircle_PositiveRadius" time="0.030667"/>
+    <testcase classname="TestAreaFunctions" name="testAreaCircle_SmallRadius" time="0.02262"/>
+    <testcase classname="TestAreaFunctions" name="testAreaCircle_InvalidInputs" time="0.13433"/>
+    <testcase classname="TestAreaFunctions" name="testAreaRectangle_PositiveDimensions" time="0.011108"/>
+    <testcase classname="TestAreaFunctions" name="testAreaRectangle_InvalidInputs" time="0.10597"/>
+    <testcase classname="TestAreaFunctions" name="testAreaSquare_PositiveSide" time="0.0047921"/>
+    <testcase classname="TestAreaFunctions" name="testAreaSquare_InvalidInputs" time="0.079664"/>
+    <testcase classname="TestAreaFunctions" name="testAreaTriangle_PositiveDimensions" time="0.0053911"/>
+    <testcase classname="TestAreaFunctions" name="testAreaTriangle_InvalidInputs" time="0.071669"/>
   </testsuite>
-  <testsuite errors="0" failures="0" name="TestVisualizationFunctions" skipped="0" tests="8" time="0.80635">
-    <testcase classname="TestVisualizationFunctions" name="testVisualizeCircle_DefaultCenter" time="0.32873"/>
-    <testcase classname="TestVisualizationFunctions" name="testVisualizeCircle_SpecifiedCenter" time="0.090226"/>
-    <testcase classname="TestVisualizationFunctions" name="testVisualizeRectangle_DefaultOrigin" time="0.074443"/>
-    <testcase classname="TestVisualizationFunctions" name="testVisualizeRectangle_SpecifiedOrigin" time="0.068548"/>
-    <testcase classname="TestVisualizationFunctions" name="testVisualizeSquare_DefaultOrigin" time="0.061377"/>
-    <testcase classname="TestVisualizationFunctions" name="testVisualizeSquare_SpecifiedOrigin" time="0.052991"/>
-    <testcase classname="TestVisualizationFunctions" name="testVisualizeTriangle_ValidVertices" time="0.061055"/>
-    <testcase classname="TestVisualizationFunctions" name="testVisualizeTriangle_WithColor" time="0.068982"/>
+  <testsuite errors="0" failures="0" name="TestVisualizationFunctions" skipped="0" tests="8" time="1.0314">
+    <testcase classname="TestVisualizationFunctions" name="testVisualizeCircle_DefaultCenter" time="0.2308"/>
+    <testcase classname="TestVisualizationFunctions" name="testVisualizeCircle_SpecifiedCenter" time="0.15691"/>
+    <testcase classname="TestVisualizationFunctions" name="testVisualizeRectangle_DefaultOrigin" time="0.1049"/>
+    <testcase classname="TestVisualizationFunctions" name="testVisualizeRectangle_SpecifiedOrigin" time="0.073713"/>
+    <testcase classname="TestVisualizationFunctions" name="testVisualizeSquare_DefaultOrigin" time="0.069778"/>
+    <testcase classname="TestVisualizationFunctions" name="testVisualizeSquare_SpecifiedOrigin" time="0.069881"/>
+    <testcase classname="TestVisualizationFunctions" name="testVisualizeTriangle_ValidVertices" time="0.1074"/>
+    <testcase classname="TestVisualizationFunctions" name="testVisualizeTriangle_WithColor" time="0.21802"/>
   </testsuite>
 </testsuites>

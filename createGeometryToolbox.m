@@ -1,8 +1,11 @@
-function createGeometryToolbox()
+function createGeometryToolbox(context)
 % createGeometryToolbox Defines and packages the GeometryToolbox using ToolboxOptions.
 %   This function programmatically defines all the necessary metadata and
 %   file inclusions for the GeometryToolbox and then packages it into an
 %   .mltbx file.
+%
+%   The 'context' argument is provided by the MATLAB Build Tool but is not
+%   used by this function.
 
 % Determine the project root directory.
 % This assumes the script is located in the project root.
@@ -11,7 +14,8 @@ projectRoot = fileparts(mfilename("fullpath"));
 % --- 1. Create ToolboxOptions object and set the root folder ---
 % The ToolboxRootFolder is the base against which relative paths for
 % ToolboxMatlabPath and ToolboxFiles will be resolved.
-UUID = "f8c3b4a9-3e5d-4f2a-8c1b-9e7d6a5b4c3d";
+% UUID = "f8c3b4a9-3e5d-4f2a-8c1b-9e7d6a5b4c3d"; % From copilot
+UUID = "23faca10-74da-4187-a95e-6f9bad8523a5"; % From Online UUID Generator
 opts = matlab.addons.toolbox.ToolboxOptions(projectRoot, UUID);
 
 opts.ToolboxName = "GeometryToolbox";
@@ -53,13 +57,13 @@ end
 opts.OutputFile = fullfile(outputDir, "GeometryToolbox.mltbx");
 
 % --- 8. Package the Toolbox ---
-disp("Starting toolbox packaging...");
-disp("  Toolbox Name: " + opts.ToolboxName);
-disp("  Output File : " + opts.OutputFile);
+% disp("Starting toolbox packaging...");
+% disp("  Toolbox Name: " + opts.ToolboxName);
+% disp("  Output File : " + opts.OutputFile);
 
 try
     matlab.addons.toolbox.packageToolbox(opts);
-    disp("Toolbox packaged successfully: " + opts.OutputFile);
+    % disp("Toolbox packaged successfully: " + opts.OutputFile);
 catch ME
     fprintf(2, 'Error packaging toolbox:\n%s\n', ME.getReport('extended', 'hyperlinks', 'off'));
     rethrow(ME);

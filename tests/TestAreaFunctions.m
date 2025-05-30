@@ -20,8 +20,6 @@ classdef TestAreaFunctions < matlab.unittest.TestCase
     methods (Test)
         % Test methods for areaCircle
         function testAreaCircle_PositiveRadius(testCase)
-            path
-            disp("END displayed path in testAreaCircle_PositiveRadius")
             radius = testCase.TestData.PositiveValue;
             expectedArea = pi * radius^2;
             actualArea = geometry.areaCircle(radius);

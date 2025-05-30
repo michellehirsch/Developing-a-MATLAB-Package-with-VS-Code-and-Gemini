@@ -27,11 +27,12 @@ jobs:
         with:
           release: ${{ matrix.matlab-version }}
           products: Image_Processing_Toolbox 
-
-      - name: Run MATLAB Build (Lint & Test)
+      
+      - name: Run MATLAB Lint & Test
+        id: run_tests # Add an ID to check the outcome of this step
         uses: matlab-actions/run-build@v2
         with:
-          tasks: lint test package # Add the package task
+          tasks: test # The 'test' task depends on 'lint' in buildfile.m
 
       - name: Upload Test Results Artifact
         uses: actions/upload-artifact@v4
@@ -39,10 +40,19 @@ jobs:
         with:
           name: matlab-test-results-${{ matrix.matlab-version }}
           path: test-results/results.xml
+      
+      - name: Package Toolbox
+        if: steps.run_tests.outcome == 'success' # Only run if lint & test passed
+        uses: matlab-actions/run-build@v2
+        with:
+          tasks: package # This will now only run the package task actions
 
       - name: Upload Toolbox Artifact
-        uses: actions/upload-artifact@v4
-        if: success() # Only upload if previous steps (including packaging) succeed
+        uses: actions/upload-artifact@v4 
+        # This step will only run if 'Package Toolbox' was successful (or skipped
+        # gracefully if tests failed). The 'if' condition ensures we only try to
+        # upload if the tests, and consequently the packaging attempt, were meant to proceed.
+        if: steps.run_tests.outcome == 'success'
         with:
           name: matlab-toolbox-${{ matrix.matlab-version }}
           path: releases/GeometryToolbox.mltbx # Path updated to the releases folder

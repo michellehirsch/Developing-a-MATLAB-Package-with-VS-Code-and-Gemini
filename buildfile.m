@@ -1,10 +1,6 @@
 function plan = buildfile
     plan = buildplan(localfunctions);
 
-    % Define project and output file names
-    prjFile = "GeometryToolbox.prj";
-    mltbxOutputFile = fullfile("releases", "GeometryToolbox.mltbx");
-
     % Set up paths
     % Currently, code is all in a namespace in the project root, so just need root on path
     addpath(fileparts(which(mfilename)))        % Ensure that the project root is on path
@@ -20,38 +16,16 @@ function plan = buildfile
 
     % Task for packaging the toolbox
     plan("package") = matlab.buildtool.Task( ...
-        Name = "Package Toolbox", ...
-        Description = "Package the toolbox into an MLTBX file using " + prjFile, ...
-        Actions = @PackageToolboxTask, ...
-        Properties = struct( ... % Pass properties to the task function
-            ProjectFile = prjFile, ...
-            OutputFile = mltbxOutputFile ...
-        ) ...
+        Description = "Package the toolbox into an MLTBX file using createGeometryToolbox.m script.", ...
+        Actions = @createGeometryToolbox ... 
     );
-    plan("package").Dependencies = "test"; % Package only if tests pass
+    % plan("package").Dependencies = "test"; 
+    % For CI, the workflow will explicitly run 'test' (which includes 'lint')
+    % before 'package', and only proceed to package if the 'test' step succeeds.
+    % Removing this direct dependency prevents 'buildtool package' (when invoked in isolation
+    % in a later CI step) from re-running tests.
+    % For a local build that includes lint, test, and package, run: 'buildtool test package'.
 
     % Default tasks remain lint and test. 'package' will be called explicitly in CI.
     plan.DefaultTasks = ["lint", "test"];
-end
-
-function PackageToolboxTask(context)
-    % Custom task function to package the toolbox.
-    % The 'context' argument provides access to task properties and other build information.
-
-    prjFile = context.Task.Properties.ProjectFile;
-    outputFile = context.Task.Properties.OutputFile;
-
-    % Ensure the output directory exists
-    outputFolder = fileparts(outputFile);
-    if ~isfolder(outputFolder)
-        mkdir(outputFolder);
-        disp("Created output folder for MLTBX: " + outputFolder);
-    end
-
-    disp("Packaging toolbox from project: " + prjFile);
-    disp("Output MLTBX file will be: " + outputFile);
-    
-    matlab.addons.toolbox.packageToolbox(prjFile, outputFile);
-    
-    disp("Toolbox packaged successfully: " + outputFile);
 end
