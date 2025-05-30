@@ -142,6 +142,10 @@ Further documentation, if generated into HTML format, can be accessed via the MA
 
 ## Running Tests
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 This toolbox includes a suite of unit tests to ensure its functionality. To run the tests:
 
 1.  Ensure the `GeometryToolbox` root directory (and its `tests` subfolder) is on the MATLAB path.

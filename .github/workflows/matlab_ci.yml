@@ -31,7 +31,7 @@ jobs:
       - name: Run MATLAB Build (Lint & Test)
         uses: matlab-actions/run-build@v2
         with:
-          tasks: lint test 
+          tasks: lint test package # Add the package task
 
       - name: Upload Test Results Artifact
         uses: actions/upload-artifact@v4
@@ -39,6 +39,13 @@ jobs:
         with:
           name: matlab-test-results-${{ matrix.matlab-version }}
           path: test-results/results.xml
+
+      - name: Upload Toolbox Artifact
+        uses: actions/upload-artifact@v4
+        if: success() # Only upload if previous steps (including packaging) succeed
+        with:
+          name: matlab-toolbox-${{ matrix.matlab-version }}
+          path: releases/GeometryToolbox.mltbx # Path updated to the releases folder
 
       # Optional: Upload Code Coverage Artifact
       # - name: Upload Code Coverage Artifact

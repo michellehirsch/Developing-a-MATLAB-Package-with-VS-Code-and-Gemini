@@ -1,5 +1,6 @@
 # MATLAB build and test artifacts
 test-results/
+releases/
 code-coverage/
 
 # MATLAB specific
