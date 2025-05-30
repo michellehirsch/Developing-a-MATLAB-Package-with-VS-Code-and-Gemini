@@ -26,6 +26,7 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           release: ${{ matrix.matlab-version }}
+          products: Image Processing Toolbox 
 
       - name: Run MATLAB Build (Lint & Test)
         uses: matlab-actions/run-build@v2
