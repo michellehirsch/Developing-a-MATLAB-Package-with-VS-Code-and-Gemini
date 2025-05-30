@@ -5,7 +5,8 @@ on:
     branches: [ main ] # Adjust if your default branch is different (e.g., master)
   pull_request:
     branches: [ main ] # Adjust if your default branch is different
-
+  workflow_dispatch:    # Allows manual triggering of the workflow
+  
 jobs:
   test-and-lint:
     name: Test & Lint (MATLAB ${{ matrix.matlab-version }})
