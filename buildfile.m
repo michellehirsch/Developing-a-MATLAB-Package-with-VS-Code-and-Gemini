@@ -1,13 +1,9 @@
 function plan = buildfile
     plan = buildplan(localfunctions);
 
-    disp("Current folder is " + pwd + newline)
-    s = which("geometry.areaTriangle");
-    if isempty(s)
-        disp("Can't find geometry.areaTriangle" + newline)
-    else
-        disp("Found geometry.areaTriangle at " + s + newline)
-    end
+    % Set up paths
+    % Currently, code is all in a namespace in the project root, so just need root on path
+    addpath(fileparts(which(mfilename)))        % Ensure that the project root is on path
 
     % Task for linting
     plan("lint") = matlab.buildtool.tasks.CodeIssuesTask(["+geometry", "examples", "tests"]); 
